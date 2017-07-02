@@ -1,0 +1,35 @@
+#pwfield ::-webkit-input-placeholder { /* Chrome */
+  color: red;
+}
+#pwfield :-ms-input-placeholder { /* IE 10+ */
+  color: red;
+}
+#pwfield ::-moz-placeholder { /* Firefox 19+ */
+  color: red;
+  opacity: 1;
+}
+.input-field label {
+  color: #0d47a1;
+}
+
+.failtoast {
+  color: white;
+  background-color: #c62828;
+}
+.warningtoast {
+  color: white;
+  background-color: #ffa000;
+}
+.console {
+  border-radius: 0.25em;
+  border: 1px solid blue;
+  overflow: scroll;
+  margin-top: 5px;
+}
+.lightcrow {
+  white-space: nowrap;
+  background-color: powderblue;
+}
+.crow {
+  white-space: nowrap;
+}
