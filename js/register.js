@@ -5,7 +5,7 @@ $(document).ready(function(){
 var anUpperCase = /[A-Z]/;
 var aLowerCase = /[a-z]/;
 var aNumber = /[0-9]/;
-var aSpecial = /[!|@|#|$|%|^|&|*|(|)|-|_]/;
+var aSpecial = /[!|@|#|$|%|^|&|*|(|)|\-|_]/;
 
 function registerUser() {
    var ign = $('#ign').val();

@@ -14,7 +14,7 @@ function createToast(args) {
   */
 
   args.text = args.text === undefined ? "blank" : args.text;
-  args.time = args.time === undefined ? 3000 : args.time;
+  args.time = args.time === undefined ? 4000 : args.time;
   args.class = args.class === undefined ? "defaulttoast" : args.class;
   args.icon = args.icon === undefined ? null : args.icon;
 
@@ -26,6 +26,15 @@ function createToast(args) {
     toastText = '<span class="right-align">' + args.text + '</span>';
   }
   Materialize.toast($(toastText), args.time, args.class);
+}
+
+function createDefaultToast(text, toasttime) {
+  if ( toasttime === undefined ) toasttime = 4000;
+  createToast({
+    text: text,
+    time: toasttime,
+    class: "defaulttoast"
+  });
 }
 
 function createFailToast(text, toasttime) {

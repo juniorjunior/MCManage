@@ -17,6 +17,28 @@ $data = array();
 $data['error'] = false;
 $data['toast'] = "";
 
+if ( !REGISTRATIONENABLED ) {
+   $data['error'] = true;
+   $data['toast'] = "Registrations are currently disabled!";
+   $data['toasttime'] = 4000;
+   sendResponse($data);
+}
+
+$uuid = $uuid = array_search($_REQUEST['ign'], $usercache);
+if ( $uuid === false ) {
+   $data['error'] = true;
+   $data['toast'] = "Could not find your player name. IGN is case sensitive!";
+   $data['toasttime'] = 4000;
+   sendResponse($data);
+}
+$perms = json_decode(file_get_contents(WORLDFOLDER . "/FEData/permissions.json"), true);
+if ( !in_array("Mod", $perms["playerGroups"]["({$uuid}|{$_REQUEST['ign']})"]) ) {
+   $data['error'] = true;
+   $data['toast'] = "You must be in in-game Mod to register here";
+   $data['toasttime'] = 4000;
+   sendResponse($data);
+}
+
 $query = "SELECT ign FROM " . TABLE_REGISTRATIONS . " WHERE ipaddress=:ipaddress AND createtime > SUBDATE(NOW(), INTERVAL 30 MINUTE)";
 $fields = array();
 $fields[':ipaddress'] = $_SERVER['REMOTE_ADDR'];

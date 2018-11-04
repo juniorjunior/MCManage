@@ -3,6 +3,7 @@
 class User {
    private $id = 0;
    private $ign = "";
+   private $uuid = "";
    private $password = "";
    private $firstname = "";
    private $lastname = "";
@@ -39,6 +40,10 @@ class User {
             return $this->ign;
             break;
       }
+   }
+
+   public function getUUID($flag = 0) {
+      return $this->uuid;
    }
 
    public function getFirstName($flag = 0) {
@@ -225,6 +230,12 @@ class User {
       if ( is_null($ign) ) return false;
       settype($ign, "string");
       $this->ign = $ign;
+      return true;
+   }
+
+   public function setUUID($uuid = null) {
+      if ( is_null($uuid) ) return false;
+      $this->uuid = $uuid;
       return true;
    }
 

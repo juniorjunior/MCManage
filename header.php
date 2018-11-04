@@ -19,5 +19,7 @@ if ( php_sapi_name() != "cli" ) {
 }
 
 $currentuser = new User($_SESSION['userid']);
+$usercache = json_decode(file_get_contents(SERVERROOT . "usernamecache.json"), true);
+$currentuser->setUUID(array_search($currentuser->getIGN(), $usercache));
 
 ?>

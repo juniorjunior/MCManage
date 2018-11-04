@@ -8,6 +8,7 @@ define('COOKIENAME', SERVERNAME . 'Login'); // Name for the "remember me" cookie
 
 // System Configuration
 //
+define('REGISTRATIONENABLED', false); // Are registrations enabled. This should normally be false after initial installation.
 define('SYSTEMRAM', 10); // How much RAM is in the system running the MC server?
 define('SYSTEMCPUS', 4); // How many CPUs/Cores are in the system running the MC server?
 define('SERVERRAM', 6);  // How much RAM is allocated to the MC server process?
@@ -15,6 +16,8 @@ define('SERVERROOT', "/ssd/mcserver/"); // The full path to the folder containin
 define('WORLDFOLDER', "/ssd/mcserver/world/"); // The full path to the folder containing the "world". (include trailing slash)
 define('CONSOLELOG', "/ssd/mcserver/logs/fml-server-latest.log"); // The full path to the "fml-server-latest.log" file.
 define('LATESTLOG', "/ssd/mcserver/logs/latest.log"); // The full path to the "latest.log" file.
+define('SCREENLOG', "/ssd/mcserver/screenlog.0"); // The Gnu Screen session log file. This must be enabled in the .screenrc!
+define('SCREENNAME', "minecraft"); // The name of the Gnu Screen sesion for the MC server. Typically "minecraft".
 define('FMTEMPDIR', "/ssd/mcserver/fmupload"); // The full path to the FileManager temp folder. No trailing slash! Writable by web server!
 
 // RCON Configuration

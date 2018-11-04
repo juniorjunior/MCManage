@@ -21,9 +21,9 @@ $parts = preg_split("/\s+/", $procloadavg);
 if ( file_exists('images/cpu-day.png') ) {
    $data['systemload'] .= "<img src='images/cpu-day.png?r=" . $unique . "'><br />";
 }
-$data['systemload'] .= intval($parts[0] * 100)/SYSTEMCPUS . "%, ";
-$data['systemload'] .= intval($parts[1] * 100)/SYSTEMCPUS . "%, ";
-$data['systemload'] .= intval($parts[2] * 100)/SYSTEMCPUS . "%, (1m, 5m, 15m)";
+$data['systemload'] .= intval(($parts[0] * 100)/SYSTEMCPUS) . "%, ";
+$data['systemload'] .= intval(($parts[1] * 100)/SYSTEMCPUS) . "%, ";
+$data['systemload'] .= intval(($parts[2] * 100)/SYSTEMCPUS) . "%, (1m, 5m, 15m)";
 
 if ( file_exists('images/external-day.png') ) {
    $data['networkusage'] = "<img src='images/external-day.png?r=" . $unique . "'><br />";

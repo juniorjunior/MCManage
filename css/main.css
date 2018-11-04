@@ -33,3 +33,42 @@
 .crow {
   white-space: nowrap;
 }
+
+.tight {
+  margin-bottom: 0;
+}
+.screenrow {
+  white-space: nowrap;
+}
+/* Black */
+.mc_0 { color: #000000; }
+/* Dark Blue */
+.mc_1 { color: #0000AA; }
+/* Dark Green */
+.mc_2 { color: #00AA00; }
+/* Dark Aqua */
+.mc_3 { color: #00AAAA; }
+/* Dark Red */
+.mc_4 { color: #AA0000; }
+/* Dark Purple */
+.mc_5 { color: #000000; }
+/* Gold */
+.mc_6 { color: #FFAA00; }
+/* Gray */
+.mc_7 { color: #AAAAAA; }
+/* Dark Gray */
+.mc_8 { color: #555555; }
+/* Blud */
+.mc_9 { color: #5555FF; }
+/* Green */
+.mc_a { color: #55FF55; }
+/* Aqua */
+.mc_b { color: #55FFFF; }
+/* Red */
+.mc_c { color: #FF5555; }
+/* Light Purple */
+.mc_d { color: #FF55FF; }
+/* Yellow */
+.mc_e { color: #FFFF55; }
+/* White */
+.mc_f { color: #FFFFFF; }
