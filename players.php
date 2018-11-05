@@ -12,14 +12,14 @@ require_ACL(ACL_PLAYERS);
   <div class='row center-align'>
     <form class='col s12'>
       <div class='row'>
-        <div class='input-field col s3 offset-s1'>
+        <div class='input-field col s7 m3 offset-m1'>
           <input id='ign' type='text'>
           <label for='ign'>In-Game Name</label>
         </div>
-        <div class='input-field col s2 left-align'>
+        <div class='input-field col s3 m2 left-align'>
           <a class='waves-effect waves-light btn' id='btn_findplayer'>Search</a>
         </div>
-        <div class='input-field col s4 left-align'>
+        <div class='input-field col s12 m4 left-align'>
           <input placeholder='Enter an IGN' id='uuid' type='text' readonly>
           <label for='ign'>UUID:</label>
         </div>
