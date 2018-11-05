@@ -40,6 +40,9 @@
 .screenrow {
   white-space: nowrap;
 }
+.pushdown {
+  margin-top: 1.2em;
+}
 /* Black */
 .mc_0 { color: #000000; }
 /* Dark Blue */

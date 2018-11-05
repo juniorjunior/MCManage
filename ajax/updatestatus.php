@@ -18,6 +18,7 @@ $data['systemuptime'] = $interval->format("%d days, %h hours, %i minutes");
 
 $procloadavg = file_get_contents("/proc/loadavg");
 $parts = preg_split("/\s+/", $procloadavg);
+$data['systemload'] = "";
 if ( file_exists('images/cpu-day.png') ) {
    $data['systemload'] .= "<img src='images/cpu-day.png?r=" . $unique . "'><br />";
 }

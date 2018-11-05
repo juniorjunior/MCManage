@@ -12,9 +12,10 @@ require_ACL(ACL_CONSOLE);
   <div class='row' id='consoletabs'>
     <div class='col s12'>
       <ul class='tabs'>
-        <li class='tab col s4'><a id='tab_fml' href='#fml'>FML Log</a></li>
-        <li class='tab col s4'><a id='tab_latest' href='#latest'>Latest Log</a></li>
-        <li class='tab col s4'><a id='tab_commands' href='#commands'>Server Console</a></li>
+        <li class='tab col s3'><a id='tab_fml' href='#fml'>FML Log</a></li>
+        <li class='tab col s3'><a id='tab_latest' href='#latest'>Latest Log</a></li>
+        <li class='tab col s3'><a id='tab_commands' href='#commands'>Server Console</a></li>
+        <li class='tab col s3'><a id='tab_crashreports' href='#crashreports'>Crash Reports</a></li>
       </ul>
     </div>
     <div id='fml' class='col s12'>
@@ -50,6 +51,17 @@ require_ACL(ACL_CONSOLE);
         <a class='waves-effect waves-light btn green' id='btn_startserver'>Start Server</a>
         <a class='waves-effect waves-light btn' id='btn_enter'>Press 'Enter'</a>
       </div>
+    </div>
+    <div id='crashreports' class='col s12'>
+      <div class='input-field col s11'>
+        <select id='sel_crashreports' class='browser-default'>
+          <option value="" disabled selected>Select A Crash Report</option>
+        </select>
+      </div>
+      <div class='col s1'>
+        <a class='waves-effect waves-light btn pushdown' id='btn_getcrashreports'>Refresh</a>
+      </div>
+      <div class='row col s12 console' id='activereport'></div>
     </div>
   </div>
 </div>

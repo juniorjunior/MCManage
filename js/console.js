@@ -9,13 +9,17 @@ $(document).ready(function(){
    $('#btn_killserver').click(function() { runCommand("killserver", true); });
    $('#btn_stopserver').click(function() { runCommand("stopserver", true); });
    $('#btn_startserver').click(function() { runCommand("startserver", true); });
+   $('#btn_getcrashreports').click(function() { getCrashReports(true); });
    $('#btn_enter').click(function() { runCommand("enter"); });
+   $('#sel_crashreports').change(function() { getReport(); });
    updateConsole();
+   getCrashReports();
 //   $('#console').height($(window).height() - $('#navigator').height() - $('#consoletabs').height() - 120);
    var newHeight = $(window).height() - $('#navigator').height() - $('#consoletabs').height();
    $('#console').height(newHeight);
    $('#latestlog').height(newHeight);
    $('#screenlog').height(newHeight);
+   $('#activereport').height(newHeight);
 });
 
 function startUpdateConsoleTimer() {
@@ -46,6 +50,43 @@ function runCommand(command, requireConfirm = false) {
             clearTimeout(updateConsoleTimeout);
          }
          updateConsoleTimeout = setTimeout(updateConsole, 500);
+      }
+   });
+}
+
+function getReport() {
+   $.ajax({
+      type: 'GET',
+      url: 'ajax/getcrashreports.php',
+      data: {report: $("#sel_crashreports").val()},
+      dataType: 'json',
+      success: function(data, stat, jqo) {
+         if ( data.error ) {
+            createFailToast(data.message);
+            return;
+         }
+         $("#activereport").html("<pre>" + data.report + "</pre>");
+         createDefaultToast(data.message);
+      }
+   });
+}
+
+function getCrashReports(interactive = false) {
+   $.ajax({
+      type: 'GET',
+      url: 'ajax/getcrashreports.php',
+      dataType: 'json',
+      success: function(data, stat, jqo) {
+         if ( data.error ) {
+            if ( interactive ) createFailToast(data.message);
+            return;
+         }
+         $("#sel_crashreports").find('option').not(':first').remove();
+         $("#sel_crashreports").val('');
+         $.each(data.crashreports, function(index, value) {
+            $("#sel_crashreports").append(new Option(value, value));
+         });
+         if ( interactive ) createDefaultToast(data.message);
       }
    });
 }

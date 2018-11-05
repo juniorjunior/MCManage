@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title id="pagetitle"><?php echo $fullpagetitle; ?></title>
+  <title id="pagetitle"><?php echo SERVERNAME; ?></title>
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Let browser know website is optimized for mobile-->
