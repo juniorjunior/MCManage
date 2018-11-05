@@ -134,6 +134,10 @@ function checkActive($file = null) {
 
 function tailCustom($filepath, $lines = 1, $adaptive = true) {
 
+   if ( !file_exists($filepath) ) return false;
+   $output = trim(`tail -n {$lines} "{$filepath}" | grep -v RCON`);
+   return $output;
+
    // Open file
    $f = @fopen($filepath, "rb");
    if ($f === false) return false;

@@ -4,14 +4,15 @@ require '../header.php';
 require_login();
 require_ACL(ACL_CONSOLE, BASICHTML);
 
-function colorize($string) {
+function colorize($string, $streamline = false) {
+   if ( $streamline ) $string = str_replace(" [Server thread/INFO]", "", $string);
    $splitchar = '§';
    $parts = explode('§', $string);
-   $colorized = "";
-   foreach ( $parts as $part ) {
-      if ( $part == "" ) continue;
-      $class = "mc_" . substr($part, 0, 1);
-      $colorized .= "<span class='{$class}'>" . htmlspecialchars(substr($part, 1)) . "</span>";
+   $colorized = $parts[0];
+   for ( $i=1; $i<count($parts); $i++ ) {
+      if ( $parts[$i] == "" ) continue;
+      $class = "mc_" . substr($parts[$i], 0, 1);
+      $colorized .= "<span class='{$class}'>" . htmlspecialchars(substr($parts[$i], 1)) . "</span>";
    }
    return $colorized;
 }
@@ -25,15 +26,15 @@ for ( $i=0; $i<count($lines); $i++ ) {
    $data['console'] .= "<div class='" . ((($i % 2) == 0) ? "crow" : "lightcrow") . "'>" . htmlspecialchars(trim($lines[$i])) . "</div>";
 }
 
-$latestlog = tailCustom(LATESTLOG, 100);
+$latestlog = tailCustom(LATESTLOG, 300);
 $lines = preg_split("/\n/", $latestlog);
 
 $data['latestlog'] = "";
 for ( $i=0; $i<count($lines); $i++ ) {
-   $data['latestlog'] .= "<div class='" . ((($i % 2) == 0) ? "crow" : "lightcrow") . "'>" . colorize(trim($lines[$i])) . "</div>";
+   $data['latestlog'] .= "<div class='" . ((($i % 2) == 0) ? "crow" : "lightcrow") . "'>" . colorize(trim($lines[$i]), true) . "</div>";
 }
 
-$screenlog = tailCustom(SCREENLOG, 100);
+$screenlog = tailCustom(SCREENLOG, 300);
 $lines = preg_split("/\n/", $screenlog);
 
 $data['screenlog'] = "";
