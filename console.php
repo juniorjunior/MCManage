@@ -47,7 +47,7 @@ require_ACL(ACL_CONSOLE);
       </div>
       <div class='input-field col s12 center-align'>
         <a class='waves-effect waves-light btn red' id='btn_killserver'>Kill Server</a>
-        <a class='waves-effect waves-light btn yellow' id='btn_stopserver'>Stop Server</a>
+        <a class='waves-effect waves-light btn orange' id='btn_stopserver'>Stop Server</a>
         <a class='waves-effect waves-light btn green' id='btn_startserver'>Start Server</a>
         <a class='waves-effect waves-light btn' id='btn_enter'>Press 'Enter'</a>
       </div>
