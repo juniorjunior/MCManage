@@ -20,12 +20,12 @@ require_ACL(ACL_PLAYERS);
           <a class='waves-effect waves-light btn' id='btn_findplayer'>Search</a>
         </div>
         <div class='input-field col s12 m4 left-align'>
-          <input placeholder='Enter an IGN' id='uuid' type='text' readonly>
+          <input placeholder='Player IGN' id='uuid' type='text' readonly>
           <label for='ign'>UUID:</label>
         </div>
-        <!-- <div class='input-field col s3 left-align'>
-          <a class='waves-effect waves-light btn disabled' id='btn_editplayer'><i class='material-icons right'>send</i>Edit Player</a>
-        </div> -->
+        <div class='input-field col m2 left-align hide-on-small-only'>
+          <a class='waves-effect waves-light btn' id='btn_copyuuid'>Copy</a>
+        </div>
       </div>
     </form>
   </div>

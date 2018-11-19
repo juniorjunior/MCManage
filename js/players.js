@@ -4,7 +4,17 @@ $(document).ready(function(){
     $("#btn_fixblobwand").click(function() { fixWandIndexes(); });
     $("#btn_impersonate").click(function() { impersonatePlayer(); });
     $("#btn_restoreadmin").click(function() { restoreAdminPData(); });
+    $("#btn_copyuuid").click(function() { copyUUID(); });
 });
+
+function copyUUID() {
+    if ( $("#uuid").val() == "" ) return;
+    $("#uuid").select();
+    document.execCommand("copy");
+    $("#uuid").blur();
+    createDefaultToast("UUID copied to clipboard!");
+    return;
+}
 
 function restoreAdminPData() {
     $.ajax({
