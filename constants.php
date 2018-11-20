@@ -1,5 +1,14 @@
 <?php
 
+// Constants derived from config file values:
+define('SESSNAME', SERVERNAME); // The name of the server works. Alphanumerics only
+define('PAGETITLE', SERVERNAME . ' Manager'); // Browser tab title
+define('COOKIENAME', SERVERNAME . 'Login'); // Name for the "remember me" cookie. Must not have anything but alphanumerics
+define('WORLDFOLDER', SERVERROOT . WORLDFOLDERNAME . "/"); // The full path to the world folder
+define('CONSOLELOG', SERVERROOT . "logs/fml-server-latest.log"); // The full path to the "fml-server-latest.log" file.
+define('LATESTLOG', SERVERROOT . "logs/latest.log"); // The full path to the "latest.log" file.
+define('SCREENLOG', SERVERROOT . "screenlog.0"); // The full path to the Gnu Screen log
+
 define("HTMLSAFE",     1000001);
 define("HTMLFORMSAFE", 1000002);
 define("ICONMENUSIZE", 1000003);

@@ -1,7 +1,7 @@
 <?php
 
-require 'constants.php';
 require 'config.php';
+require 'constants.php';
 require 'functions.php';
 require 'class_user.php';
 require 'vendor/PHP-Minecraft-Rcon/Rcon.php';
