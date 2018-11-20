@@ -30,7 +30,7 @@ function restorePData() {
                 createFailToast(data.toast, data.toasttime);
                 return;
             }
-            Materialize.toast(data.toast, data.toasttime);
+            createDefaultToast(data.toast, data.toasttime);
         }
     });
 }
@@ -55,7 +55,7 @@ function restoreAdminPData() {
                 createFailToast(data.toast, data.toasttime);
                 return;
             }
-            Materialize.toast(data.toast, data.toasttime);
+            createDefaultToast(data.toast, data.toasttime);
         }
     });
 }
@@ -77,7 +77,7 @@ function impersonatePlayer() {
                 createFailToast(data.toast, data.toasttime);
                 return;
             }
-            Materialize.toast(data.toast, data.toasttime);
+            createDefaultToast(data.toast, data.toasttime);
         }
     });
 }
@@ -99,7 +99,7 @@ function fixWandIndexes() {
                 createFailToast(data.toast, data.toasttime);
                 return;
             }
-            Materialize.toast(data.toast, data.toasttime);
+            createDefaultToast(data.toast, data.toasttime);
         }
     });
 }
@@ -122,14 +122,14 @@ function sendPlayerToSpawn() {
                 return;
             }
             findPlayer();
-            Materialize.toast(data.toast, data.toasttime);
+            createDefaultToast(data.toast, data.toasttime);
         }
     });
 }
 
 function findPlayer() {
     var ign = $("#ign").val();
-    Materialize.toast("Searching for player data...", 2000);
+    createDefaultToast("Searching for player data...", 2000);
     $.ajax({
         type: 'POST',
         url: 'ajax/findplayer.php',

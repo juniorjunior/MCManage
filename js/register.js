@@ -40,7 +40,7 @@ function registerUser() {
          $('#ign').val("");
          $('#password').val("");
          $('#password2').val("");
-         Materialize.toast(data.toast);
+         createDefaultToast(data.toast);
       }
    });
 }

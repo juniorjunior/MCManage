@@ -41,9 +41,11 @@ require_ACL(ACL_CONSOLE);
     </div>
     <div id='commands' class='col s12'>
       <div class='row col s12 console' id='screenlog'></div>
-      <div class='input-field col s12 center-align'>
-        <input type='checkbox' id='confirmcommand' value='1' />
-        <label for='confirmcommand'>Check this box to confirm before each command!</label>
+      <div class='row col s12 m4 offset-m4 center-align'>
+        <label>
+          <input type='checkbox' id='confirmcommand' value='1' />
+          <span>Check this box to confirm before each command!</span>
+        </label>
       </div>
       <div class='input-field col s12 center-align'>
         <a class='waves-effect waves-light btn red' id='btn_killserver'>Kill Server</a>

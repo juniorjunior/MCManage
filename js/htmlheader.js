@@ -1,7 +1,7 @@
 $(document).ready(function(){
-   $(".button-collapse").sideNav();
-   $(".dropdown-button").dropdown({
+   $(".sidenav").sidenav();
+   $(".dropdown-trigger").dropdown({
       constrainWidth: false,
-      belowOrigin: true
+      coverTrigger: false
    });
 });

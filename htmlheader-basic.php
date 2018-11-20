@@ -10,7 +10,7 @@
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <!-- Favicon -->
   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="css/materialize.css">
+  <link rel="stylesheet" href="materialize/css/materialize.css">
   <!--Main CSS-->
   <link rel="stylesheet" href="css/main.css">
   <!--Page Specific CSS-->

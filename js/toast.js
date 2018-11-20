@@ -25,7 +25,7 @@ function createToast(args) {
   } else {
     toastText = '<span class="right-align">' + args.text + '</span>';
   }
-  Materialize.toast($(toastText), args.time, args.class);
+  M.toast({html: toastText, displayLength: args.time, classes: args.class});
 }
 
 function createDefaultToast(text, toasttime) {
