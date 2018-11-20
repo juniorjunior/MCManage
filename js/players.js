@@ -5,7 +5,35 @@ $(document).ready(function(){
     $("#btn_impersonate").click(function() { impersonatePlayer(); });
     $("#btn_restoreadmin").click(function() { restoreAdminPData(); });
     $("#btn_copyuuid").click(function() { copyUUID(); });
+    $("#btn_pdatarestore").click(function() { restorePData(); });
+    $("#sel_pdataversions").change(function() { changePDataSelect(); });
 });
+
+function changePDataSelect() {
+    $("#btn_pdatarestore").removeClass("red");
+}
+
+function restorePData() {
+    if ( ($("#sel_pdataversions").val() == "") || ($("#sel_pdataversions").val() == null) ) return;
+    if ( !$("#btn_pdatarestore").hasClass("red") ) {
+        $("#btn_pdatarestore").addClass("red");
+        return;
+    }
+    $("#btn_pdatarestore").removeClass("red");
+    $.ajax({
+        type: 'POST',
+        url: 'ajax/pdatarestore.php',
+        data: {ign: $("#ign").val(), uuid: $("#uuid").val(), file: $("#sel_pdataversions").val()},
+        dataType: 'json',
+        success: function(data, stat, jqo) {
+            if ( data.error == true ) {
+                createFailToast(data.toast, data.toasttime);
+                return;
+            }
+            Materialize.toast(data.toast, data.toasttime);
+        }
+    });
+}
 
 function copyUUID() {
     if ( $("#uuid").val() == "" ) return;
@@ -123,6 +151,12 @@ function findPlayer() {
             $("#home").html(data.home);
             $("#pos").html(data.pos);
             $("#timePlayed").html(data.timePlayed);
+            $("#sel_pdataversions").find('option').not(':first').remove();
+            $("#sel_pdataversions").val('');
+            $("#btn_pdatarestore").removeClass("red");
+            $.each(data.pdata, function(index, value) {
+                $("#sel_pdataversions").append(new Option(value.mtime_pretty, value.file));
+            });
         }
     });
 }

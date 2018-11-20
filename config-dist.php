@@ -19,6 +19,7 @@ define('LATESTLOG', "/ssd/mcserver/logs/latest.log"); // The full path to the "l
 define('SCREENLOG', "/ssd/mcserver/screenlog.0"); // The Gnu Screen session log file. This must be enabled in the .screenrc!
 define('SCREENNAME', "minecraft"); // The name of the Gnu Screen sesion for the MC server. Typically "minecraft".
 define('FMTEMPDIR', "/ssd/mcserver/fmupload"); // The full path to the FileManager temp folder. No trailing slash! Writable by web server!
+define('PDATABACKUPDIR', "/ssd/pdatabackups/"); // The full path to the top level dir where player data backups reside. (include trailing slash)
 
 // RCON Configuration
 //

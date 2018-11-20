@@ -54,6 +54,16 @@ require_ACL(ACL_PLAYERS);
       <div class='col s6 left-align' id='timePlayed'></div>
     </div>
   <div class='row center-align'>
+    <div class='col s10 m5 offset-m3'>
+      <select id='sel_pdataversions' class='browser-default'>
+        <option value="" disabled selected>Select A Player Data File</option>
+      </select>
+    </div>
+    <div class='col s2 m1'>
+      <a class='waves-effect waves-light btn' id='btn_pdatarestore'>Restore</a>
+    </div>
+  </div>
+  <div class='row center-align'>
     <a class='waves-effect waves-light btn' id='btn_sendtospawn'>Send Player To Spawn</a>
     <a class='waves-effect waves-light btn' id='btn_fixblobwand'>Fix Bad Wand Index</a>
     <a class='waves-effect waves-light btn' id='btn_impersonate'>Impersonate This Player</a>

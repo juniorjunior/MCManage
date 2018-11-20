@@ -89,6 +89,26 @@ $z = intval($posparts[2]);
 $dim = intval($posparts[3]);
 $data['pos'] = "{$x}, {$y}, {$z} in DIM: {$dim} ({$x} {$y} {$z})";
 
+$findcmd = "find \"" . PDATABACKUPDIR . "\" -name {$playerfile} -print";
+$files = explode("\n", trim(`{$findcmd}`));
+$list = array();
+foreach ( $files as $file ) {
+   $mtime = filemtime($file);
+   if ( !in_array($mtime, $list) ) {
+      $list[substr($file, strlen(PDATABACKUPDIR))] = $mtime;
+   }
+}
+arsort($list, SORT_NUMERIC);
+$data["pdata"] = array();
+foreach ( $list as $file => $mtime ) {
+   $entry = array();
+   $entry["file"] = $file;
+   $entry["mtime"] = $mtime;
+   $entry["mtime_pretty"] = date("M j, H:i", $mtime);
+   $data["pdata"][] = $entry;
+}
+
+
 $data['toast'] = "Player Data Found! Starting Editor...";
 $data['toasttime'] = 4000;
 finishScript($data);
